@@ -1,15 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const List = ({ todos }) => (
-  <ul>
-    { todos.map( (t, i) =>
-        <li key={i}>
-          {t}
-        </li>
-      )
-    }
-  </ul>
+const List = () => (
+  <div></div>
 )
 
 const mapStateToProps = (state) => {
