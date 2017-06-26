@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { toggleTodo } from '../actions/todos';
 
 const styles = {
   complete: {
@@ -10,7 +11,7 @@ const styles = {
 
 const Todo = ({ id, name, complete, dispatch }) => (
   <li
-    onClick={() => dispatch({ type: 'TOGGLE_TODO', id }) }
+    onClick={() => dispatch(toggleTodo(id)) }
     style={ complete ? styles.complete : {} }
   >
     {name}
