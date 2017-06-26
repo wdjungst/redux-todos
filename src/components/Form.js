@@ -10,9 +10,11 @@ class Form extends React.Component {
 
   submit = (e) => {
     e.preventDefault();
-    let { dispatch } = this.props;
+    let { dispatch, id } = this.props;
     let { name } = this.state;
-    dispatch({ type: 'ADD_TODO', todo: name })
+    let todo = { id, name, complete: false }
+    dispatch({ type: 'ADD_TODO', todo })
+    dispatch({ type: 'INC_ID' })
     this.setState({ name: '' })
   }
 
@@ -30,5 +32,14 @@ class Form extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return { id: state.nextId }
+}
 
-export default connect()(Form)
+export default connect(mapStateToProps)(Form)
+
+
+
+
+
+
